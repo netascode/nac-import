@@ -1,0 +1,13 @@
+*.zip
+*.log
+*.out
+
+# Binary
+/aac-import
+/aac-import.exe
+
+# OS files
+.DS_Store
+
+# Build dir
+dist

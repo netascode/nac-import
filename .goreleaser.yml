@@ -1,0 +1,42 @@
+---
+project_name: aac-import
+env:
+  - GO111MODULE=on
+  - CGO_ENABLED=0
+before:
+  hooks:
+    - rm -rf dist
+    - go mod download
+    - go test ./...
+builds:
+  - id: aac-import
+    binary: aac-import
+    main: ./cmd/aac-import
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+archives:
+  - id: aac-import
+    format: zip
+    files:
+      - README.md
+      - LICENSE
+    name_template: "aac-import_{{ .Version }}_{{ .Os }}"
+    replacements:
+      darwin: MacOS
+      windows: Windows
+      linux: Linux
+      amd64: 64-bit
+
+checksum:
+  name_template: "checksums.txt"
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^test:"
