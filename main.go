@@ -138,6 +138,9 @@ func getPreRunFiles(workingDir string) map[string]struct{} {
 // cleanup cleans up temp files
 func cleanup(workingDir string, preRunFiles map[string]struct{}, mv bool) {
 	dir, _ := os.ReadDir(workingDir)
+	if mv {
+		os.MkdirAll(filepath.Join(workingDir, cleanupPath), 0755)
+	}
 	for _, file := range dir {
 		if file.Name() == "terraform.tfstate" {
 			continue
