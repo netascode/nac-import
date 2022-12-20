@@ -1,5 +1,5 @@
 ---
-project_name: aac-import
+project_name: nac-import
 env:
   - GO111MODULE=on
   - CGO_ENABLED=0
@@ -9,8 +9,8 @@ before:
     - go mod download
     - go test ./...
 builds:
-  - id: aac-import
-    binary: aac-import
+  - id: nac-import
+    binary: nac-import
     goos:
       - windows
       - darwin
@@ -18,12 +18,12 @@ builds:
     goarch:
       - amd64
 archives:
-  - id: aac-import
+  - id: nac-import
     format: zip
     files:
       - README.md
       - LICENSE
-    name_template: "aac-import_{{ .Version }}_{{ .Os }}"
+    name_template: "nac-import_{{ .Version }}_{{ .Os }}"
     replacements:
       darwin: MacOS
       windows: Windows

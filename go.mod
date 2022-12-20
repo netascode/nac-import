@@ -1,4 +1,4 @@
-module aac-import
+module nac-import
 
 go 1.19
 

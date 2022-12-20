@@ -23,8 +23,8 @@ const (
 	versionConstraint = ">= 1.3"
 	exactVersion      = "1.3.6"
 	workerCount       = 10
-	planFile          = "aac-import.tfplan"
-	cleanupPath       = "aac-import-files"
+	planFile          = "nac-import.tfplan"
+	cleanupPath       = "nac-import-files"
 )
 
 var (
@@ -273,7 +273,7 @@ func mainHandler(log *logger.Logger, args args) error {
 				tfexec.State(mo.stateFile),
 				tfexec.StateOut(mainStateFile),
 				tfexec.Lock(false),
-				tfexec.Backup("aac-import.tmp.tfstate.backup"),
+				tfexec.Backup("nac-import.tmp.tfstate.backup"),
 			)
 			if err == nil {
 				break
@@ -291,7 +291,7 @@ func main() {
 		consoleLevel = logger.DebugLevel
 	}
 	log, _ := logger.New(logger.Config{
-		Filename:     "aac-import.log",
+		Filename:     "nac-import.log",
 		ConsoleLevel: consoleLevel,
 	})
 	if err := mainHandler(log, args); err != nil {

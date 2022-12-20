@@ -4,14 +4,14 @@ This tool automates importing existing ACI objects into a local terraform state 
 
 Traditionally `terraform import` would need to be run for each MO, which can be a time consuming and error-prone process. This tool reads imports from the terraform plan output and attempts to speed up imports by running `terraform import` requests in parallel.
 
-**Note** that this is not strictly required, but can provide additional assurance that a large terraform plan will not result in production impact in a brownfield AAC deployment.
+**Note** that this is not strictly required, but can provide additional assurance that a large terraform plan will not result in production impact in a brownfield ACI deployment.
 
 # Quick Start
 
 Run this tool from within the Terraform root folder. The CLI options are for exceptional cases and typically won't be required.
 
 ```
-Usage: aac-import [--verbose] [--no-cleanup] [--install]
+Usage: nac-import [--verbose] [--no-cleanup] [--install]
 
 Options:
   --verbose, -v          Print debug output to CLI
